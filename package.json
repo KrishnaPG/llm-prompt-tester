@@ -8,11 +8,14 @@
     "test": "jest"
   },
   "dependencies": {
-    "pino": "^9.7.0",
+    "@huggingface/transformers": "^3.5.1",
     "config": "^4.0.0",
+    "fast-levenshtein": "^3.0.0",
+    "groq-sdk": "^0.22.0",
     "limiter": "^3.0.0",
-    "yaml": "^2.8.0",
-    "fast-levenshtein": "^3.0.0"
+    "openai": "^4.103.0",
+    "pino": "^9.7.0",
+    "yaml": "^2.8.0"
   },
   "devDependencies": {
     "@types/jest": "^29.5.14",
