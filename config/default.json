@@ -1,0 +1,16 @@
+{
+  "logger": {
+    "type": "pino",
+    "options": {
+      "level": "info"
+    }
+  },
+  "testOptions": {
+    "retries": 2,
+    "timeout": 30000,
+    "rateLimit": {
+      "requestsPerMinute": 10
+    },
+    "metrics": ["latency", "tokenUsage", "consistency", "deviation", "instructionFollowing"]
+  }
+}
