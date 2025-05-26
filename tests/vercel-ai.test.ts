@@ -19,6 +19,7 @@ describe("Vercel AI SDK Tests", () => {
 
     runner.registerLLM("vercel-ai", {
       call: async (prompt: Prompt | string, userMessage: string | object, chatHistory?: any) => {
+        const t1 = performance.now();
         const response = await generateText({
           model,
           system:  typeof prompt === "string" ? prompt : prompt.content,
@@ -27,9 +28,10 @@ describe("Vercel AI SDK Tests", () => {
             { role: "user", content: typeof userMessage === "string" ? userMessage : userMessage },
           ],
         });
+        const t2 = performance.now();
         return {
-          content: response.choices[0].message.content,
-          metadata: { tokens: response.usage, latency: response.latency },
+          content: response.text,
+          metadata: { tokens: response.usage.totalTokens, latency: t2-t1 },
         };
       },
     });

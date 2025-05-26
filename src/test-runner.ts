@@ -3,8 +3,14 @@ import { PromptLoader } from "./prompt-loader";
 import { MetricsCalculator } from "./metrics";
 import { Validator } from "./validators";
 import { getLogger, TLogger } from "./logger";
-import { LLMResponse, TestCase, TestOptions } from "./types";
+import { LLMResponse, Metrics, TestCase, TestOptions } from "./types";
 import { RateLimiter } from "limiter";
+
+export type TestResult = {
+  isValid: boolean;
+  response: LLMResponse;
+  metrics: Metrics
+};
 
 export class TestRunner {
   private llmClient: LLMClient;
